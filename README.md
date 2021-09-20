@@ -1,12 +1,12 @@
  
 
-<img src="logo.svg" alt="OpenZeppelin" height="100px">
+<img src="logo.svg" alt="ApeSwap" height="100px">
 
 # ApeSwap Contracts 
 
 **A collection of smart contract tools and interfaces used by ApeSwap..** 
 
-<!-- TODO:  -->
+<!-- TODO: add features -->
 ### Features:  
  * 
 
@@ -23,9 +23,6 @@ yarn add @apeswapfinance/contracts
 ```console
 npm install @apeswapfinance/contracts
 ```
-
-<!-- TODO: Would be nice :P -->
-<!-- OpenZeppelin Contracts features a [stable API](https://docs.openzeppelin.com/contracts/releases-stability#api-stability), which means your contracts won't break unexpectedly when upgrading to a newer minor version. -->
 
 ### Usage
 
