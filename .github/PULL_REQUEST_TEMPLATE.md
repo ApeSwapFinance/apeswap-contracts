@@ -1,4 +1,4 @@
-<!-- Thank you for your interest in contributing to OpenZeppelin! -->
+<!-- Thank you for your interest in contributing to ApeSwap! -->
 
 <!-- Consider opening an issue for discussion prior to submitting a PR. -->
 <!-- New features will be merged faster if they were first discussed and designed with the team. -->
