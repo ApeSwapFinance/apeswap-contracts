@@ -1,16 +1,16 @@
 ---
 name: Bug report
-about: Report a bug in OpenZeppelin Contracts
+about: Report a bug in ApeSwap Contracts
 
 ---
 
 <!-- Briefly describe the issue you're experiencing. Tell us what you were trying to do and what happened instead. -->
 
-<!-- Remember, this is not a place to ask for help debugging code. For that, we welcome you in the OpenZeppelin Community Forum: https://forum.openzeppelin.com/. -->
+<!-- Remember, this is not a place to ask for help debugging code. For that, we welcome you in the ApeSwap Community Discord: https://discord.gg/AbVxfGRCSd. -->
 
 **💻 Environment**
 
-<!-- Tell us what version of OpenZeppelin Contracts you're using, and how you're using it: Truffle, Remix, etc. -->
+<!-- Tell us what version of ApeSwap Contracts you're using, and how you're using it: Truffle, Remix, etc. -->
 
 **📝 Details**
 

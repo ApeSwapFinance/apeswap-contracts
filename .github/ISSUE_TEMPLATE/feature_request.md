@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for OpenZeppelin Contracts
+about: Suggest an idea for ApeSwap Contracts
 
 ---
 
@@ -10,5 +10,5 @@ about: Suggest an idea for OpenZeppelin Contracts
 **📝 Details**
 <!-- Please describe your feature request in detail. -->
 
-<!-- Make sure that you have reviewed the OpenZeppelin Contracts Contributor Guidelines. -->
-<!-- https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/CONTRIBUTING.md -->
+<!-- Make sure that you have reviewed the ApeSwap Contracts Contributor Guidelines. -->
+<!-- https://github.com/ApeSwapFinance/apeswap-contracts/main/master/CONTRIBUTING.md -->
