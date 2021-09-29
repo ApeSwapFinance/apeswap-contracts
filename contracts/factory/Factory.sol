@@ -5,6 +5,7 @@
 pragma solidity ^0.8.0;
 
 import "../proxy/Clones.sol";
+import "../proxy/transparent/TransparentUpgradeableProxy.sol";
 import "../access/Ownable.sol";
 
 /*
@@ -18,29 +19,29 @@ import "../access/Ownable.sol";
  */
 
 /**
-* @dev Standardized Apeswap factory
+* @dev Standardized Apeswap Clone Factory
 */ 
 contract Factory is Ownable {
     address[] public contracts;
     address[] public implementations;
-    uint256 public version = 0;
+    uint256 public contractVersion = 0;
 
     event ContractDeployed(address contractAddress);
-    event PushImplementation(
+    event PushImplementationContract(
         address indexed newImplementation,
         uint256 versionId
     );
-    event UpdateImplementation(uint256 previousVersion, uint256 newVersion);
+    event UpdateImplementationContract(uint256 previousVersion, uint256 newVersion);
 
     constructor(address _implementation) {
-        pushImplementation(_implementation);
+        pushImplementationContract(_implementation);
     }
 
     /**
     * @dev deploy new contract of active implementation
     */
-    function deployNew() external onlyOwner returns (address newContract) {
-        newContract = Clones.clone(address(implementations[version]));
+    function deployNewContract() external virtual onlyOwner returns (address newContract) {
+        newContract = Clones.clone(address(implementations[contractVersion]));
         contracts.push(newContract);
         emit ContractDeployed(newContract);
     }
@@ -48,21 +49,21 @@ contract Factory is Ownable {
     /**
     * @dev Get amount of deployed contracts
     */ 
-    function getLength() external view returns (uint256) {
+    function getLengthContracts() external view returns (uint256) {
         return contracts.length;
     }
 
     /**
     * @dev Get all deployed contract addresses
     */ 
-    function getAll() external view returns (address[] memory) {
+    function getAllContracts() external view returns (address[] memory) {
         return contracts;
     }
 
     /**
     * @dev Pagination function for deployed contract addresses. Slicing contracts
     */ 
-    function getSome(uint256 _index, uint256 _amount) external view returns (address[] memory) {
+    function getSomeContracts(uint256 _index, uint256 _amount) external view returns (address[] memory) {
         require(
             _index < contracts.length,
             "Out of bounds"
@@ -83,7 +84,7 @@ contract Factory is Ownable {
     /**
     * @dev Get single deployed contract address based on index
     */ 
-    function getAtIndex(uint256 _index) external view returns (address) {
+    function getContractAtIndex(uint256 _index) external view returns (address) {
         require(
             _index < contracts.length,
             "Out of bounds"
@@ -94,29 +95,35 @@ contract Factory is Ownable {
     /**
     * @dev Returns current active implementation address
     */ 
-    function activeImplementation() public view returns (address) {
-        return implementations[version];
+    function activeImplementationContract() public view returns (address) {
+        return implementations[contractVersion];
     }
 
     /**
     * @dev Add and use new implemetation
     */ 
-    function pushImplementation(address _newImplementation) public onlyOwner {
+    function pushImplementationContract(address _newImplementation) public onlyOwner {
+        uint32 size;
+        assembly{
+            size := extcodesize(_newImplementation)
+        }
+        require(size > 0, "Not a contract");
+
         implementations.push(_newImplementation);
-        version = implementations.length - 1;
-        emit PushImplementation(_newImplementation, version);
+        contractVersion = implementations.length - 1;
+        emit PushImplementationContract(_newImplementation, contractVersion);
     }
 
     /**
     * @dev Change active implemetation
     */ 
-    function setImplementation(uint256 _index) external onlyOwner {
+    function setImplementationContract(uint256 _index) external onlyOwner {
         require(
             _index < implementations.length,
             "version out of bounds"
         );
-        uint256 previousVersion = version;
-        version = _index;
-        emit UpdateImplementation(previousVersion, version);
+        uint256 previousVersion = contractVersion;
+        contractVersion = _index;
+        emit UpdateImplementationContract(previousVersion, contractVersion);
     }
 }
