@@ -31,41 +31,38 @@ contract Sweeper is Ownable {
     );
 
     constructor(address[] memory _lockedTokens) {
-        for (uint256 i = 0; i < _lockedTokens.length; i++) {
-            address token = _lockedTokens[i];
-            lockedTokens[token] = true;
-        }
+        lockTokens(_lockedTokens);
     }
 
     /**
      * @dev Transfers erc20 tokens to owner
      * Only owner of contract can call this function
      */
-    function sweepTokens(IERC20[] memory tokens) external onlyOwner {
+    function sweepTokens(IERC20[] memory tokens, address to) external onlyOwner {
         NFT[] memory empty;
-        sweepTokensAndNFTs(tokens, empty);
+        sweepTokensAndNFTs(tokens, empty, to);
     }
 
      /**
-     * @dev Transfers erc20 tokens to owner
+     * @dev Transfers NFT to owner
      * Only owner of contract can call this function
      */
-    function sweepNFTs(NFT[] memory nfts) external onlyOwner {
+    function sweepNFTs(NFT[] memory nfts, address to) external onlyOwner {
         IERC20[] memory empty;
-        sweepTokensAndNFTs(empty, nfts);
+        sweepTokensAndNFTs(empty, nfts, to);
     }
 
     /**
-     * @dev Transfers erc20 tokens to owner
+     * @dev Transfers ERC20 and NFT to owner
      * Only owner of contract can call this function
      */
-    function sweepTokensAndNFTs(IERC20[] memory tokens, NFT[] memory nfts) public onlyOwner {
+    function sweepTokensAndNFTs(IERC20[] memory tokens, NFT[] memory nfts, address to) public onlyOwner {
         for (uint i = 0; i < tokens.length; i++) {
             IERC20 token = tokens[i];
             require(!lockedTokens[address(token)], "Tokens can't be sweeped");
             uint256 balance = token.balanceOf(address(this));
-            token.transfer(msg.sender, balance);
-            emit SweepWithdrawToken(msg.sender, token, balance);
+            token.transfer(to, balance);
+            emit SweepWithdrawToken(to, token, balance);
         }
 
         for (uint i = 0; i < nfts.length; i++) {
@@ -73,13 +70,27 @@ contract Sweeper is Ownable {
             require(!lockedTokens[address(nftaddress)], "Tokens can't be sweeped");
             uint256[] memory ids = nfts[i].ids;
             for (uint j = 0; j < ids.length; j++) {
-                nftaddress.safeTransferFrom(address(this), msg.sender, ids[j]);
+                nftaddress.safeTransferFrom(address(this), to, ids[j]);
             }
         }
-        emit SweepWithdrawNFTs(msg.sender, nfts);
+        emit SweepWithdrawNFTs(to, nfts);
     }
 
-    function lockToken(address token) external onlyOwner {
+    /**
+    * @dev Lock single token so they can't be transferred from the contract.
+    * Once locked it can't be unlocked
+    */
+    function lockToken(address token) public onlyOwner {
         lockedTokens[token] = true;
+    }
+
+    /**
+    * @dev Lock multiple tokens so they can't be transferred from the contract.
+    * Once locked it can't be unlocked
+    */
+    function lockTokens(address[] memory tokens) public onlyOwner {
+        for (uint i = 0; i < tokens.length; i++) {
+            lockToken(tokens[i]);
+        }
     }
 }
