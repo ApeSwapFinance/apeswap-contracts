@@ -1,6 +1,6 @@
 {
   "rules": {
-    "no-unused-vars": "error",
+    "no-unused-vars": "warn",
     "const-name-snakecase": "error",
     "contract-name-camelcase": "error",
     "event-name-camelcase": "error",
@@ -9,6 +9,8 @@
     "modifier-name-mixedcase": "error",
     "private-vars-leading-underscore": "error",
     "var-name-mixedcase": "error",
-    "imports-on-top": "error"
+    "imports-on-top": "error",
+    "no-trailing-spaces": false,
+    "quotes": false
   }
 }
