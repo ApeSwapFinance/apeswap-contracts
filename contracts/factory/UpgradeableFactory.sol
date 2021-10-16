@@ -33,7 +33,7 @@ contract UpgradeableFactory is Factory {
     /**
     * @dev deploy new contract of active implementation
     */
-    function deployNewContract() external override onlyOwner returns (address newContract) {
+    function _deployNewContract() internal override returns (address newContract) {
         TransparentUpgradeableProxy newProxy = new TransparentUpgradeableProxy(address(implementations[contractVersion]), proxyAdmin, '');
         newContract = address(newProxy);
         contracts.push(newContract);

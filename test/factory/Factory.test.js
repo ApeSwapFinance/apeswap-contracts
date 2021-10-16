@@ -1,7 +1,7 @@
 const { BN, constants, expectEvent, expectRevert, ether } = require('@openzeppelin/test-helpers');
 const { assert } = require('chai');
 
-const Factory = artifacts.require('Factory');
+const Factory = artifacts.require('FactoryMock');
 const ERC20Mock = artifacts.require('ERC20Mock');
 
 contract('Factory', function (accounts) {

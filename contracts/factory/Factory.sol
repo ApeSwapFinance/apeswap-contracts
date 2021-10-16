@@ -40,7 +40,7 @@ contract Factory is Ownable {
     /**
     * @dev deploy new contract of active implementation
     */
-    function deployNewContract() external virtual onlyOwner returns (address newContract) {
+    function _deployNewContract() internal virtual returns (address newContract) {
         newContract = Clones.clone(address(implementations[contractVersion]));
         contracts.push(newContract);
         emit ContractDeployed(newContract);
