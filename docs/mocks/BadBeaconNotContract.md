@@ -1,0 +1,16 @@
+## `BadBeaconNotContract`
+
+
+
+
+
+
+### `implementation() → address` (external)
+
+
+
+
+
+
+
+

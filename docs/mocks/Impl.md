@@ -1,0 +1,16 @@
+## `Impl`
+
+
+
+
+
+
+### `version() → string` (public)
+
+
+
+
+
+
+
+
