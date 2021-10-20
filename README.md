@@ -6,36 +6,38 @@
 
 **A collection of smart contract tools and interfaces used by ApeSwap..** 
 
-<!-- TODO: add features -->
-### Features:  
- * 
+## Features:  
+ * **Factories**: Turn a contract into a factory using the contract address as an implementation with `Clones` or `TransparentUpgradeableProxy`
+ * **Sweeper**: Sweep any ERC-20 or NFT locked in a contract with this utility.
 
 
 
-## Overview
+## Installation
+1. Create a `.npmrc` file at the root of your directory and add the following lines: 
 
-### Installation
-
-```console
-yarn add @apeswapfinance/contracts
+```
+@defifofum:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
 ```
 
-```console
-npm install @apeswapfinance/contracts
-```
+2. Create a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)  
 
-### Usage
+3. Export the personal access token as `NPM_TOKEN`  
+   `export NPM_TOKEN=<your-token>`
+
+4. `yarn add @apeswapfinance/contracts` 
+
+## Usage
 
 Once installed, you can use the contracts in the library by importing them:
 
-<!-- TODO: Import working example -->
 ```solidity
 pragma solidity ^0.8.0;
 
-import "@apeswapfinance/contracts/...";
+import "@apeswapfinance/contracts/utils/Sweeper";
 
-contract MyContract is ERC721 {
-    constructor() ERC721("MyCollectible", "MCO") {
+contract MyContract is Sweeper {
+    constructor(address[] lockedTokens) Sweeper(lockedTokens) {
     }
 }
 ```

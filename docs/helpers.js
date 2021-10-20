@@ -5,6 +5,6 @@ module.exports = {
     if (typeof contractPath !== 'string') {
       throw new Error('Missing argument');
     }
-    return `https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v${version}/contracts/${contractPath}`;
+    return `https://github.com/ApeSwapFinance/apeswap-contracts/blob/v${version}/contracts/${contractPath}`;
   },
 };
