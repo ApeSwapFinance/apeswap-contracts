@@ -26,7 +26,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 
 /**
-* @dev Standardized Apeswap Clone Factory
+* @dev Standardized ApeSwap Clone Factory
 */ 
 contract Factory is Ownable {
     address[] public contracts;

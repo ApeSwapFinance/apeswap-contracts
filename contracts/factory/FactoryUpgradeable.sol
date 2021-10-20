@@ -17,10 +17,10 @@ import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.so
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
-* @dev Standardized Apeswap Upgrade Factory.
+* @dev Standardized ApeSwap Upgrade Factory.
 * Extension of Clone Factory
 */ 
-contract UpgradeableFactory is Factory {
+contract FactoryUpgradeable is Factory {
     address public proxyAdmin;
 
     constructor(address _implementation, address _admin) Factory(_implementation) {
