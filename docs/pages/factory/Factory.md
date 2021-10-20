@@ -2,7 +2,7 @@
 
 
 
-Standardized Apeswap Clone Factory
+Standardized ApeSwap Clone Factory
 
 
 ### `constructor(address _implementation)` (public)
@@ -11,7 +11,7 @@ Standardized Apeswap Clone Factory
 
 
 
-### `deployNewContract() → address newContract` (external)
+### `_deployNewContract() → address newContract` (internal)
 
 
 

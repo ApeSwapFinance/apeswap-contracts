@@ -1,8 +1,8 @@
-## `UpgradeableFactory`
+## `FactoryUpgradeable`
 
 
 
-Standardized Apeswap Upgrade Factory.
+Standardized ApeSwap Upgrade Factory.
 Extension of Clone Factory
 
 
@@ -12,7 +12,7 @@ Extension of Clone Factory
 
 
 
-### `deployNewContract() → address newContract` (external)
+### `_deployNewContract() → address newContract` (internal)
 
 
 
