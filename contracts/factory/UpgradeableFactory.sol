@@ -1,13 +1,5 @@
-//SPDX-License-Identifier: UNLICENSED
-//ALL RIGHTS RESERVED
-//apeswap.finance
-
+//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-
-import "./Factory.sol";
-import "../proxy/Clones.sol";
-import "../proxy/transparent/TransparentUpgradeableProxy.sol";
-import "../access/Ownable.sol";
 
 /*
  * ApeSwapFinance
@@ -18,6 +10,11 @@ import "../access/Ownable.sol";
  * Announcements:   https://t.me/ape_swap_news
  * GitHub:          https://github.com/ApeSwapFinance
  */
+
+import "./Factory.sol";
+import "@openzeppelin/contracts/proxy/Clones.sol";
+import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
 * @dev Standardized Apeswap Upgrade Factory.

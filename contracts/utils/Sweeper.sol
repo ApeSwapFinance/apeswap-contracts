@@ -1,10 +1,19 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
-import "../access/Ownable.sol";
-import "../token/ERC20/IERC20.sol";
-import "../token/ERC721/IERC721.sol";
+/*
+ * ApeSwapFinance
+ * App:             https://apeswap.finance
+ * Medium:          https://ape-swap.medium.com
+ * Twitter:         https://twitter.com/ape_swap
+ * Telegram:        https://t.me/ape_swap
+ * Announcements:   https://t.me/ape_swap_news
+ * GitHub:          https://github.com/ApeSwapFinance
+ */
+
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 /**
  * @dev Sweep any ERC20 token.
