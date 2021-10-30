@@ -31,7 +31,7 @@
     "release": "scripts/release/release.sh",
     "version": "scripts/release/version.sh",
     "pretest": "yarn compile",
-    "test": "mocha --exit --recursive --timeout 15000",
+    "test": "mocha --exit --recursive --timeout 30000",
     "test:ci": "yarn test",
     "test:inheritance": "node scripts/inheritanceOrdering artifacts/build-info/*",
     "gas-report": "export ENABLE_GAS_REPORT=true; yarn test",
