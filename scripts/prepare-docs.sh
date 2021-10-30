@@ -5,7 +5,7 @@ set -o errexit
 OUTDIR=docs/pages/
 
 if [ ! -d node_modules ]; then
-  npm ci
+  yarn ci
 fi
 
 rm -rf "$OUTDIR"
