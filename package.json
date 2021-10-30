@@ -26,6 +26,7 @@
     "lint:sol:fix": "prettier --write \"contracts/**/*.sol\"",
     "prepublish": "rimraf build contracts/build artifacts cache",
     "prepare": "export COMPILE_MODE=production; yarn compile",
+    "postinstall": "yarn husky install",
     "prepack": "scripts/prepack.sh",
     "release": "scripts/release/release.sh",
     "version": "scripts/release/version.sh",
