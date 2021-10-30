@@ -21,23 +21,15 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
  * This contract makes sure any erc20 tokens can be removed from the contract.
  */
 contract Sweeper is Ownable {
-    
     struct NFT {
         IERC721 nftaddress;
         uint256[] ids;
     }
-    mapping (address => bool) public lockedTokens;
+    mapping(address => bool) public lockedTokens;
 
-    event SweepWithdrawToken(
-        address indexed receiver,
-        IERC20 indexed token,
-        uint256 balance
-    );
+    event SweepWithdrawToken(address indexed receiver, IERC20 indexed token, uint256 balance);
 
-     event SweepWithdrawNFTs(
-        address indexed receiver,
-        NFT[] indexed nfts
-    );
+    event SweepWithdrawNFTs(address indexed receiver, NFT[] indexed nfts);
 
     constructor(address[] memory _lockedTokens) {
         lockTokens(_lockedTokens);
@@ -52,7 +44,7 @@ contract Sweeper is Ownable {
         sweepTokensAndNFTs(tokens, empty, to);
     }
 
-     /**
+    /**
      * @dev Transfers NFT to owner
      * Only owner of contract can call this function
      */
@@ -65,8 +57,12 @@ contract Sweeper is Ownable {
      * @dev Transfers ERC20 and NFT to owner
      * Only owner of contract can call this function
      */
-    function sweepTokensAndNFTs(IERC20[] memory tokens, NFT[] memory nfts, address to) public onlyOwner {
-        for (uint i = 0; i < tokens.length; i++) {
+    function sweepTokensAndNFTs(
+        IERC20[] memory tokens,
+        NFT[] memory nfts,
+        address to
+    ) public onlyOwner {
+        for (uint256 i = 0; i < tokens.length; i++) {
             IERC20 token = tokens[i];
             require(!lockedTokens[address(token)], "Tokens can't be sweeped");
             uint256 balance = token.balanceOf(address(this));
@@ -74,11 +70,11 @@ contract Sweeper is Ownable {
             emit SweepWithdrawToken(to, token, balance);
         }
 
-        for (uint i = 0; i < nfts.length; i++) {
+        for (uint256 i = 0; i < nfts.length; i++) {
             IERC721 nftaddress = nfts[i].nftaddress;
             require(!lockedTokens[address(nftaddress)], "Tokens can't be sweeped");
             uint256[] memory ids = nfts[i].ids;
-            for (uint j = 0; j < ids.length; j++) {
+            for (uint256 j = 0; j < ids.length; j++) {
                 nftaddress.safeTransferFrom(address(this), to, ids[j]);
             }
         }
@@ -86,19 +82,19 @@ contract Sweeper is Ownable {
     }
 
     /**
-    * @dev Lock single token so they can't be transferred from the contract.
-    * Once locked it can't be unlocked
-    */
+     * @dev Lock single token so they can't be transferred from the contract.
+     * Once locked it can't be unlocked
+     */
     function lockToken(address token) public onlyOwner {
         lockedTokens[token] = true;
     }
 
     /**
-    * @dev Lock multiple tokens so they can't be transferred from the contract.
-    * Once locked it can't be unlocked
-    */
+     * @dev Lock multiple tokens so they can't be transferred from the contract.
+     * Once locked it can't be unlocked
+     */
     function lockTokens(address[] memory tokens) public onlyOwner {
-        for (uint i = 0; i < tokens.length; i++) {
+        for (uint256 i = 0; i < tokens.length; i++) {
             lockToken(tokens[i]);
         }
     }

@@ -1,7 +1,7 @@
 module.exports = {
     norpc: true,
-    testCommand: 'npm test',
-    compileCommand: 'npm run compile',
+    testCommand: 'yarn test',
+    compileCommand: 'yarn run compile',
     skipFiles: [
         'mocks',
     ],

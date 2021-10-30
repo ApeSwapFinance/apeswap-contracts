@@ -6,26 +6,26 @@
 
 **A collection of smart contract tools and interfaces used by ApeSwap..** 
 
-## Features:  
- * **Factories**: Turn a contract into a factory using the contract address as an implementation with `Clones` or `TransparentUpgradeableProxy`
- * **Sweeper**: Sweep any ERC-20 or NFT locked in a contract with this utility.
+## Features
 
+- **Factories**: Turn a contract into a factory using the contract address as an implementation with `Clones` or `TransparentUpgradeableProxy`
+
+- **Sweeper**: Sweep any ERC-20 or NFT locked in a contract with this utility.
 
 
 ## Installation
-1. Create a `.npmrc` file at the root of your directory and add the following lines: 
+
+1. Create a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+
+2. Create a `.npmrc` file at the root of this repo or at your $HOME dir and add the following lines, replacing `<NPM_TOKEN>` with yours
 
 ```
-@defifofum:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+//npm.pkg.github.com/:_authToken=<NPM_TOKEN>
+//registry=https://npm.pkg.github.com/ApeSwapFinance
 ```
 
-2. Create a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)  
-
-3. Export the personal access token as `NPM_TOKEN`  
-   `export NPM_TOKEN=<your-token>`
-
-4. `yarn add @apeswapfinance/contracts` 
+3. `yarn add @apeswapfinance/contracts` 
 
 ## Usage
 

@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "prepare": "bash ../scripts/prepare-contracts-package.sh",
-    "prepare-docs": "cd ..; npm run prepare-docs"
+    "prepare-docs": "cd ..; yarn run prepare-docs"
   },
   "repository": {
     "type": "git",

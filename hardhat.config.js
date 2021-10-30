@@ -5,6 +5,7 @@
 // - COMPILE_MODE:      production modes enables optimizations (default: development)
 // - COMPILE_VERSION:   compiler version (default: 0.8.3)
 // - COINMARKETCAP:     coinmarkercat api key for USD value in gas report
+require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
@@ -71,6 +72,9 @@ module.exports = {
     hardhat: {
       blockGasLimit: 10000000,
       allowUnlimitedContractSize: !withOptimizations,
+      forking: {
+        url: process.env.ARCHIVE_NODE_FORK,
+      }
     },
   },
   gasReporter: {

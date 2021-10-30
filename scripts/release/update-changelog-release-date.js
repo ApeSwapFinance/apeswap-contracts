@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Sets the release date of the current release in the changelog.
-// This is run automatically when npm version is run.
+// This is run automatically when yarn version is run.
 
 const fs = require('fs');
 const cp = require('child_process');

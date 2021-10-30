@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+yarn lint:fix
+yarn prettier:fix
+yarn gen:docs
+yarn audit --groups dependencies
+yarn test:ci

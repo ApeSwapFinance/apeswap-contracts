@@ -38,19 +38,19 @@ push_release_branch_and_tag() {
 publish() {
   dist_tag="$1"
 
-  log "Publishing openzeppelin-solidity on npm"
-  npm publish --tag "$dist_tag" --otp "$(prompt_otp)"
+  log "Publishing openzeppelin-solidity on yarn"
+  yarn publish --tag "$dist_tag" --otp "$(prompt_otp)"
 
-  log "Publishing @openzeppelin/contracts on npm"
+  log "Publishing @openzeppelin/contracts on yarn"
   cd contracts
   env ALREADY_COMPILED= \
-      npm publish --tag "$dist_tag" --otp "$(prompt_otp)"
+      yarn publish --tag "$dist_tag" --otp "$(prompt_otp)"
   cd ..
 
   if [[ "$dist_tag" == "latest" ]]; then
     otp="$(prompt_otp)"
-    npm dist-tag rm --otp "$otp" openzeppelin-solidity next
-    npm dist-tag rm --otp "$otp" @openzeppelin/contracts next
+    yarn dist-tag rm --otp "$otp" openzeppelin-solidity next
+    yarn dist-tag rm --otp "$otp" @openzeppelin/contracts next
   fi
 }
 
@@ -64,7 +64,7 @@ push_and_publish() {
 }
 
 prompt_otp() {
-  log -n "Enter npm 2FA token: "
+  log -n "Enter yarn 2FA token: "
   read -r otp
   echo "$otp"
 }
@@ -75,10 +75,10 @@ environment_check() {
     exit 1
   fi
 
-  if npm whoami &> /dev/null; then
-    log "Will publish as '$(npm whoami)'"
+  if yarn whoami &> /dev/null; then
+    log "Will publish as '$(yarn whoami)'"
   else
-    log "Not logged in into npm, run 'npm login' first"
+    log "Not logged in into yarn, run 'yarn login' first"
     exit 1
   fi
 }
@@ -97,7 +97,7 @@ elif [[ "$*" == "start minor" ]]; then
   git checkout -b release-temp
 
   # This bumps minor and adds prerelease suffix, commits the changes, and tags the commit
-  npm version preminor --preid="$PRERELEASE_SUFFIX"
+  yarn version preminor --preid="$PRERELEASE_SUFFIX"
 
   # Rename the release branch
   git branch --move "$(current_release_branch)"
@@ -113,7 +113,7 @@ elif [[ "$*" == "start major" ]]; then
   git checkout -b release-temp
 
   # This bumps major and adds prerelease suffix, commits the changes, and tags the commit
-  npm version premajor --preid="$PRERELEASE_SUFFIX"
+  yarn version premajor --preid="$PRERELEASE_SUFFIX"
 
   # Rename the release branch
   git branch --move "$(current_release_branch)"
@@ -126,24 +126,24 @@ elif [[ "$*" == "rc" ]]; then
   assert_current_branch "$(current_release_branch)"
 
   # Bumps prerelease number, commits and tags
-  npm version prerelease
+  yarn version prerelease
 
   push_and_publish next
 
 elif [[ "$*" == "final" ]]; then
-  # Update changelog release date, remove prerelease suffix, tag, push to git, publish in npm, remove next dist-tag
+  # Update changelog release date, remove prerelease suffix, tag, push to git, publish in yarn, remove next dist-tag
   log "Creating final release"
 
   assert_current_branch "$(current_release_branch)"
 
   # This will remove the prerelease suffix from the version
-  npm version patch
+  yarn version patch
 
   push_release_branch_and_tag
 
   push_and_publish latest
 
-  npm deprecate 'openzeppelin-solidity@>=4.0.0' "This package is now published as @openzeppelin/contracts. Please change your dependency."
+  yarn deprecate 'openzeppelin-solidity@>=4.0.0' "This package is now published as @openzeppelin/contracts. Please change your dependency."
 
   log "Remember to merge the release branch into master and push upstream"
 
