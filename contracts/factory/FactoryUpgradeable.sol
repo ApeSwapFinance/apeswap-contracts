@@ -17,9 +17,9 @@ import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.so
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
-* @dev Standardized ApeSwap Upgrade Factory.
-* Extension of Clone Factory
-*/ 
+ * @dev Standardized ApeSwap Upgrade Factory.
+ * Extension of Clone Factory
+ */
 contract FactoryUpgradeable is Factory {
     address public proxyAdmin;
 
@@ -28,10 +28,14 @@ contract FactoryUpgradeable is Factory {
     }
 
     /**
-    * @dev deploy new contract of active implementation
-    */
+     * @dev deploy new contract of active implementation
+     */
     function _deployNewContract() internal override returns (address newContract) {
-        TransparentUpgradeableProxy newProxy = new TransparentUpgradeableProxy(address(implementations[contractVersion]), proxyAdmin, '');
+        TransparentUpgradeableProxy newProxy = new TransparentUpgradeableProxy(
+            address(implementations[contractVersion]),
+            proxyAdmin,
+            ""
+        );
         newContract = address(newProxy);
         contracts.push(newContract);
         emit ContractDeployed(newContract);
