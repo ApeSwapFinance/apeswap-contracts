@@ -1,7 +1,7 @@
 {
-  "name": "@openzeppelin/contracts",
+  "name": "@apeswapfinance/contracts",
   "description": "Secure Smart Contract library for Solidity",
-  "version": "4.3.0",
+  "version": "0.1.1",
   "files": [
     "**/*.sol",
     "/build/contracts/*.json",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+    "url": "https://github.com/ApeSwapFinance/apeswap-contracts.git"
   },
   "keywords": [
     "solidity",
@@ -23,10 +23,10 @@
     "security",
     "zeppelin"
   ],
-  "author": "OpenZeppelin Community <maintainers@openzeppelin.org>",
+  "author": "ApeSwap Community <maintainers@apeswap.finance>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts/issues"
+    "url": "https://github.com/ApeSwapFinance/apeswap-contracts/issues"
   },
-  "homepage": "https://openzeppelin.com/contracts/"
+  "homepage": "https://github.com/ApeSwapFinance/apeswap-contracts/"
 }
