@@ -4,11 +4,11 @@
 
 Start on an up-to-date `main` branch.
 
-Create the release branch with `npm run release start minor`.
+Create the release branch with `yarn run release start minor`.
 
-Publish a release candidate with `npm run release rc`.
+Publish a release candidate with `yarn run release rc`.
 
-Publish the final release with `npm run release final`.
+Publish the final release with `yarn run release final`.
 
 Follow the general [OpenZeppelin Contracts release checklist].
 
