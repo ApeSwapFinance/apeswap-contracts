@@ -37,11 +37,10 @@ git commit "Fix some bug #123"
 git push origin fix/some-bug-#123
 ```
 
-4) Run tests, linter, etc. This can be done by running local continuous integration and make sure it passes.
+4) Setup husky to automatically run tests, linters, and doc generators for you, every time you run `git commit.
 
 ```bash
-npm test
-npm run lint
+npx husky install
 ```
 
 5) Go to [github.com/ApeSwapFinance/apeswap-contracts](https://github.com/ApeSwapFinance/apeswap-contracts) in your web browser and issue a new pull request.
