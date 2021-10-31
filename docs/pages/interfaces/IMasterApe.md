@@ -4,7 +4,8 @@ Farm factory. Responsible for minting BANANAs and distributing them as rewards t
 
 
 see implementation at https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/MasterApe.sol
-should be kept in sync with https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/interfaces/IMasterApe.sol
+should be kept in sync with https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/interfaces/IMasterApe.sol .
+what would be best is to explicitly declare the relation between the contract and its interface
 
 
 ### `transferOwnership(address newOwner)` (external)

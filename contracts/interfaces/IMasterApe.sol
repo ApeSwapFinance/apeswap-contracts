@@ -5,7 +5,8 @@ pragma solidity ^0.8.0;
 /// @title IMasterApe
 /// @notice Farm factory. Responsible for minting BANANAs and distributing them as rewards to each farm.
 /// @dev see implementation at https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/MasterApe.sol
-/// @dev should be kept in sync with https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/interfaces/IMasterApe.sol
+/// @dev should be kept in sync with https://github.com/ApeSwapFinance/apeswap-banana-farm/blob/feature/masterape-admin/contracts/interfaces/IMasterApe.sol .
+/// @dev what would be best is to explicitly declare the relation between the contract and its interface
 interface IMasterApe {
     /// @notice Pool info
     struct PoolInfo {
