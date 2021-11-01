@@ -5,6 +5,17 @@
 ### Added
 ### Changed
 
+
+### Removed
+## 0.1.2 - 2021-11-01
+### Added
+- `IApeSwapPool.sol`
+- `IMasterApe.sol`
+- `IMultiChainBridge.sol` Represents an adapter contract we use as glue code between Apeswap codebase and a third party bridges
+- `ApeSwapPoolManager.sol` provides reusable logic to handle IApeSwapPool contracts
+- `MasterApeManager.sol` provides reusable logic to handle IMasterApe contracts
+
+
 ### Removed
 ## 0.1.0 - 2021-10-20
 ### Added
