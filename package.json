@@ -1,7 +1,7 @@
 {
   "name": "@apeswapfinance/contracts",
   "description": "A collection of smart contract tools and interfaces used by ApeSwap.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "yarn": "^1.22.0"
   },
@@ -26,7 +26,6 @@
     "lint:sol:fix": "prettier --write \"contracts/**/*.sol\"",
     "prepublish": "rimraf build contracts/build artifacts cache",
     "prepare": "export COMPILE_MODE=production; yarn compile",
-    "postinstall": "yarn husky install",
     "prepack": "scripts/prepack.sh",
     "release": "scripts/release/release.sh",
     "version": "scripts/release/version.sh",

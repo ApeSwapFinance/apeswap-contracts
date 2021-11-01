@@ -16,12 +16,12 @@ As a contributor, you are expected to fork this repository, work on your own for
 1) Make sure your fork is up to date with the main repository:
 
 ```
-cd openzeppelin-contracts
+cd apeswap-contracts
 git remote add upstream https://github.com/ApeSwapFinance/apeswap-contracts.git
 git fetch upstream
 git pull --rebase upstream master
 ```
-NOTE: The directory `openzeppelin-contracts` represents your fork's local copy.
+NOTE: The directory `apeswap-contracts` represents your fork's local copy.
 
 2) Branch out from `master` into `fix/some-bug-#123`:
 (Postfixing #123 will associate your PR with the issue #123 and make everyone's life easier =D)
@@ -37,11 +37,10 @@ git commit "Fix some bug #123"
 git push origin fix/some-bug-#123
 ```
 
-4) Run tests, linter, etc. This can be done by running local continuous integration and make sure it passes.
+4) Setup husky to automatically run tests, linters, and doc generators for you, every time you run `git commit.
 
 ```bash
-npm test
-npm run lint
+npx husky install
 ```
 
 5) Go to [github.com/ApeSwapFinance/apeswap-contracts](https://github.com/ApeSwapFinance/apeswap-contracts) in your web browser and issue a new pull request.
