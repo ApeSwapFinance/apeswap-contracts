@@ -9,7 +9,7 @@ contract('Sweeper', function (accounts) {
   const [admin] = accounts;
 
   beforeEach(async function () {
-    this.sweeper = await Sweeper.new([]);
+    this.sweeper = await Sweeper.new([], true);
     this.token20 = await ERC20Mock.new('Mock Token', 'MOCK', this.sweeper.address, ether('100'));
     this.token721 = await ERC721Mock.new('Mock NFT', 'MNFT');
   });

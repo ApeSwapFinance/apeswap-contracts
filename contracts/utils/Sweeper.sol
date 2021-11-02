@@ -25,14 +25,21 @@ contract Sweeper is Ownable {
         IERC721 nftaddress;
         uint256[] ids;
     }
-    mapping(address => bool) public lockedTokens;
+    mapping (address => bool) public lockedTokens;
+    bool public allowNativeSweep;
 
     event SweepWithdrawToken(address indexed receiver, IERC20 indexed token, uint256 balance);
 
     event SweepWithdrawNFTs(address indexed receiver, NFT[] indexed nfts);
 
-    constructor(address[] memory _lockedTokens) {
+    event SweepWithdrawNative(
+        address indexed receiver,
+        uint256 balance
+    );
+
+    constructor(address[] memory _lockedTokens, bool _allowNativeSweep) {
         lockTokens(_lockedTokens);
+        allowNativeSweep = _allowNativeSweep;
     }
 
     /**
@@ -79,6 +86,23 @@ contract Sweeper is Ownable {
             }
         }
         emit SweepWithdrawNFTs(to, nfts);
+    }
+
+    /// @notice Sweep native coin
+    /// @param _to address the native coins should be transferred to
+    function sweepNative(address payable _to) public onlyOwner {
+        require(allowNativeSweep, "Not allowed");
+        uint256 balance = address(this).balance;
+        _to.transfer(balance);
+        emit SweepWithdrawNative(_to, balance);
+    }
+
+    /**
+    * @dev Refuse native sweep.
+    * Once refused can't be allowed again
+    */
+    function refuseNativeSweep() public onlyOwner {
+        allowNativeSweep = false;
     }
 
     /**
