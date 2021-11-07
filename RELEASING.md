@@ -30,3 +30,13 @@ git push upstream master
 ```
 
 The release branch can then be deleted on GitHub.
+
+## Make available the new release to yarn and npm package managers
+
+1. [Create a new Personal Access Token](https://github.com/settings/tokens/new) with `write:packages` scope enabled.
+2. Find or create the file `.npmrc` at your HOME dir. And add the following lines to it:
+```
+@apeswapfinance:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR-GH-ACCESS-TOKEN
+````
+3. Run `yarn publish` at the root of your repo.
