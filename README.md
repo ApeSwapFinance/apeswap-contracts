@@ -22,7 +22,7 @@
 
 ```
 //npm.pkg.github.com/:_authToken=<NPM_TOKEN>
-//registry=https://npm.pkg.github.com/ApeSwapFinance
+@apeswapfinance:registry=https://npm.pkg.github.com
 ```
 
 3. `yarn add @apeswapfinance/contracts` 
