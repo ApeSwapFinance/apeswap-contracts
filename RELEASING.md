@@ -40,3 +40,11 @@ The release branch can then be deleted on GitHub.
 //npm.pkg.github.com/:_authToken=YOUR-GH-ACCESS-TOKEN
 ````
 3. Run `yarn publish` at the root of your repo.
+
+### Known Issues
+
+```bash
+scripts/prepack.sh: line 4: shopt: globstar: invalid shell option name
+```
+
+**Solution:** Install a newer version of bash with `brew install bash` and try again.
