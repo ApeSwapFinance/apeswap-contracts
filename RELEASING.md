@@ -39,7 +39,7 @@ The release branch can then be deleted on GitHub.
 @apeswapfinance:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=YOUR-GH-ACCESS-TOKEN
 ````
-3. Run `yarn publish` at the root of your repo.
+3. Run `yarn publish` from the `./contracts` folder
 
 ### Known Issues
 
