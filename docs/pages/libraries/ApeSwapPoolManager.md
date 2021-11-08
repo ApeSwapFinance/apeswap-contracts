@@ -18,7 +18,7 @@ Deposit reward tokens into a pool
 
 
 
-### `withdraw(contract IApeSwapPool _pool)` (public)
+### `withdraw(contract IApeSwapPool _pool, uint256 _amount)` (public)
 
 
 

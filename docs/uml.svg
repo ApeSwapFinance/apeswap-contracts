@@ -205,7 +205,7 @@
 <text text-anchor="start" x="1079.115" y="-168.3" font-family="Times,serif" font-size="14.00" fill="#000000">Public:</text>
 <text text-anchor="start" x="1079.115" y="-151.5" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;depositRewards(_pool: IApeSwapPool, _rewardToken: IERC20)</text>
 <text text-anchor="start" x="1079.115" y="-134.7" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;harvest(_pool: IApeSwapPool)</text>
-<text text-anchor="start" x="1079.115" y="-117.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;withdraw(_pool: IApeSwapPool)</text>
+<text text-anchor="start" x="1079.115" y="-117.9" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;withdraw(_pool: IApeSwapPool, _amount: uint256)</text>
 <text text-anchor="start" x="1079.115" y="-101.1" font-family="Times,serif" font-size="14.00" fill="#000000"> &#160;&#160;&#160;deposit(_pool: IApeSwapPool, _amount: uint256)</text>
 </g>
 <!-- 5&#45;&gt;2 -->

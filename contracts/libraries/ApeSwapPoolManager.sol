@@ -23,9 +23,9 @@ library ApeSwapPoolManager {
         _pool.withdraw(0);
     }
 
-    function withdraw(IApeSwapPool _pool) public {
+    function withdraw(IApeSwapPool _pool, uint256 _amount) public {
         // withdraw
-        _pool.withdraw(0);
+        _pool.withdraw(_amount);
     }
 
     function deposit(IApeSwapPool _pool, uint256 _amount) public {
