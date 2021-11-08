@@ -7,7 +7,7 @@ Sometimes people accidentally send tokens to a contract without any way to retri
 This contract makes sure any erc20 tokens can be removed from the contract.
 
 
-### `constructor(address[] _lockedTokens)` (public)
+### `constructor(address[] _lockedTokens, bool _allowNativeSweep)` (public)
 
 
 
@@ -34,6 +34,20 @@ Only owner of contract can call this function
 Transfers ERC20 and NFT to owner
 Only owner of contract can call this function
 
+### `sweepNative(address payable _to)` (public)
+
+Sweep native coin
+
+
+
+
+### `refuseNativeSweep()` (public)
+
+
+
+Refuse native sweep.
+Once refused can't be allowed again
+
 ### `lockToken(address token)` (public)
 
 
@@ -56,6 +70,12 @@ Once locked it can't be unlocked
 
 
 ### `SweepWithdrawNFTs(address receiver, struct Sweeper.NFT[] nfts)`
+
+
+
+
+
+### `SweepWithdrawNative(address receiver, uint256 balance)`
 
 
 

@@ -17,4 +17,19 @@ library ApeSwapPoolManager {
         _rewardToken.approve(address(_pool), rewardBalance);
         _pool.depositRewards(rewardBalance);
     }
+
+    function harvest(IApeSwapPool _pool) public {
+        // harvest
+        _pool.withdraw(0);
+    }
+
+    function withdraw(IApeSwapPool _pool) public {
+        // withdraw
+        _pool.withdraw(0);
+    }
+
+    function deposit(IApeSwapPool _pool, uint256 _amount) public {
+        // deposit
+        _pool.deposit(_amount);
+    }
 }
