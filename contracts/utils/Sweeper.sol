@@ -25,17 +25,14 @@ contract Sweeper is Ownable {
         IERC721 nftaddress;
         uint256[] ids;
     }
-    mapping (address => bool) public lockedTokens;
+    mapping(address => bool) public lockedTokens;
     bool public allowNativeSweep;
 
     event SweepWithdrawToken(address indexed receiver, IERC20 indexed token, uint256 balance);
 
     event SweepWithdrawNFTs(address indexed receiver, NFT[] indexed nfts);
 
-    event SweepWithdrawNative(
-        address indexed receiver,
-        uint256 balance
-    );
+    event SweepWithdrawNative(address indexed receiver, uint256 balance);
 
     constructor(address[] memory _lockedTokens, bool _allowNativeSweep) {
         lockTokens(_lockedTokens);
@@ -98,9 +95,9 @@ contract Sweeper is Ownable {
     }
 
     /**
-    * @dev Refuse native sweep.
-    * Once refused can't be allowed again
-    */
+     * @dev Refuse native sweep.
+     * Once refused can't be allowed again
+     */
     function refuseNativeSweep() public onlyOwner {
         allowNativeSweep = false;
     }
