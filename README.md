@@ -14,18 +14,7 @@
 
 
 ## Installation
-
-1. Create a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-
-
-2. Create a `.npmrc` file at the root of this repo or at your $HOME dir and add the following lines, replacing `<NPM_TOKEN>` with yours
-
-```
-//npm.pkg.github.com/:_authToken=<NPM_TOKEN>
-@apeswapfinance:registry=https://npm.pkg.github.com
-```
-
-3. `yarn add @apeswapfinance/contracts` 
+`yarn add @apeswap.finance/contracts` 
 
 ## Usage
 
