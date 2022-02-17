@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -euo pipefail
-shopt -s globstar
+# shopt -s globstar
 
 # cross platform `mkdir -p`
 node -e 'fs.mkdirSync("build/contracts", { recursive: true })'
