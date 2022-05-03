@@ -7,6 +7,10 @@
 
 
 ### Removed
+## 1.0.0 - 2022-05-03
+### Changed
+- Package registry to `@ape.swap`
+
 ## 0.1.2 - 2021-11-01
 ### Added
 - `IApeSwapPool.sol`
