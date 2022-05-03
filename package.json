@@ -1,5 +1,5 @@
 {
-  "name": "@apeswap.finance/contracts",
+  "name": "@ape.swap/contracts",
   "description": "A collection of smart contract tools and interfaces used by ApeSwap.",
   "version": "0.2.0",
   "engines": {
