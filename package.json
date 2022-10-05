@@ -1,7 +1,7 @@
 {
   "name": "@ape.swap/contracts",
   "description": "A collection of smart contract tools and interfaces used by ApeSwap.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "yarn": "^1.22.0"
   },
