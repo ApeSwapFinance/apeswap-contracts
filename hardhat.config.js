@@ -6,6 +6,7 @@
 // - COMPILE_VERSION:   compiler version (default: 0.8.3)
 // - COINMARKETCAP:     coinmarkercat api key for USD value in gas report
 require('dotenv').config();
+require("@nomicfoundation/hardhat-chai-matchers");
 
 const fs = require('fs');
 const path = require('path');
