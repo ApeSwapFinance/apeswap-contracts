@@ -72,9 +72,9 @@ module.exports = {
     hardhat: {
       blockGasLimit: 10000000,
       allowUnlimitedContractSize: !withOptimizations,
-      forking: {
-        url: process.env.ARCHIVE_NODE_FORK,
-      }
+      // forking: {
+      //   url: process.env.ARCHIVE_NODE_FORK,
+      // }
     },
   },
   gasReporter: {
