@@ -11,7 +11,7 @@ pragma solidity ^0.8.0;
  * GitHub:          https://github.com/ApeSwapFinance
  */
 
-import "../utils/SweeperUpgradeable.sol";
+import "../utils/v0.8/SweeperUpgradeable.sol";
 
 contract SweeperUpgradeableMock is SweeperUpgradeable {
     constructor() {}

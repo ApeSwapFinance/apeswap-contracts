@@ -11,7 +11,7 @@ pragma solidity ^0.8.0;
  * GitHub:          https://github.com/ApeSwapFinance
  */
 
-import "../utils/Sweeper.sol";
+import "../utils/v0.8/Sweeper.sol";
 
 contract SweeperMock is Sweeper {
     address[] empty;
