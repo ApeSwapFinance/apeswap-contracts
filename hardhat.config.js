@@ -6,6 +6,7 @@
 // - COMPILE_VERSION:   compiler version (default: 0.8.3)
 // - COINMARKETCAP:     coinmarkercat api key for USD value in gas report
 require('dotenv').config();
+require("@nomicfoundation/hardhat-chai-matchers");
 
 const fs = require('fs');
 const path = require('path');
@@ -60,7 +61,15 @@ const withOptimizations = argv.enableGasReport || argv.compileMode === 'producti
  */
 module.exports = {
   solidity: {
-    version: argv.compiler,
+    compilers: [
+      {
+        version: "0.6.12"
+      }, {
+        version: "0.7.6"
+      }, {
+        version: "0.8.17"
+      }
+    ],
     settings: {
       optimizer: {
         enabled: withOptimizations,

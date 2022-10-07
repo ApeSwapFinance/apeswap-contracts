@@ -70,11 +70,10 @@
     "@commitlint/config-conventional": "^13.2.0",
     "@nomiclabs/hardhat-truffle5": "^2.0.0",
     "@nomiclabs/hardhat-web3": "^2.0.0",
-    "@openzeppelin/contracts": "^4.3.2",
     "@openzeppelin/docs-utils": "^0.1.0",
-    "@openzeppelin/test-helpers": "^0.5.13",
+    "@openzeppelin/test-helpers": "^0.5.16",
     "@truffle/abi-utils": "^0.2.3",
-    "chai": "^4.2.0",
+    "chai": "^4.3.6",
     "dotenv": "^10.0.0",
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.1",
@@ -108,7 +107,13 @@
     "yargs": "^16.2.0"
   },
   "dependencies": {
-    "underscore": "^1.12.1",
-    "@openzeppelin/contracts-upgradeable": "^4.7.3"
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
+    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts-upgradeable": "^4.7.3",
+    "@openzeppelin/contracts-upgradeable-v0.7": "npm:@openzeppelin/contracts-upgradeable@^3.4.0",
+    "@openzeppelin/contracts-v0.7": "npm:@openzeppelin/contracts@^3.4.2",
+    "install": "^0.13.0",
+    "npm": "^8.19.2",
+    "underscore": "^1.12.1"
   }
 }
