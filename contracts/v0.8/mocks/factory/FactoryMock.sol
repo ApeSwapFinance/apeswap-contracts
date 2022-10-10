@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: GPL-3.0-only
 pragma solidity ^0.8.0;
 
 /*
@@ -11,12 +11,12 @@ pragma solidity ^0.8.0;
  * GitHub:          https://github.com/ApeSwapFinance
  */
 
-import "../utils/Sweeper.sol";
+import "../../factory/Factory.sol";
 
-contract SweeperMock is Sweeper {
-    address[] empty;
+contract FactoryMock is Factory {
+    constructor(address _implementation) Factory(_implementation) {}
 
-    constructor() Sweeper(empty, true) {}
-
-    receive() external payable {}
+    function deployNewContract() external returns (address newContract) {
+        return _deployNewContract();
+    }
 }
