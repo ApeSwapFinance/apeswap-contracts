@@ -46,7 +46,7 @@ const COMPILER_SETTINGS = {
           settings: COMPILER_SETTINGS,
         },
         {
-          version: '0.6.6',
+          version: '0.6.12',
           settings: COMPILER_SETTINGS,
         },
         {

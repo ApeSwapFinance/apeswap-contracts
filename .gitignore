@@ -60,3 +60,5 @@ allFiredEvents
 # hardhat
 cache
 artifacts
+typechain
+dist
