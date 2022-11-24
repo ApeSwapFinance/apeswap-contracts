@@ -43,7 +43,7 @@ abstract contract ContractWhitelist is IContractWhitelist, Ownable {
     modifier checkEOAorWhitelist() {
         // If whitelist is enabled and sender is not EOA
         if (whitelistEnabled && msg.sender != tx.origin) {
-            require(contractWhitelistSet.contains(msg.sender), "checkWhitelist: not in whitelist");
+            require(isWhitelisted(msg.sender), "checkWhitelist: not in whitelist");
         }
         _;
     }
@@ -57,6 +57,12 @@ abstract contract ContractWhitelist is IContractWhitelist, Ownable {
     /// @param _index Index to query
     function getWhitelistAtIndex(uint256 _index) external virtual override returns (address) {
         return contractWhitelistSet.at(_index);
+    }
+
+    /// @notice Check if an address is whitelisted
+    /// @param _address Address to query
+    function isWhitelisted(address _address) public virtual override returns (bool) {
+        return contractWhitelistSet.contains(_address);
     }
 
     /// @notice enables smart contract whitelist
@@ -75,7 +81,7 @@ abstract contract ContractWhitelist is IContractWhitelist, Ownable {
     /// @notice Enable or disable contract addresses on the whitelist
     /// @param _addresses Addressed to update on whitelist
     /// @param _enabled Set if the whitelist is enabled or disabled for each address passed
-    function setBatchContractWhitelist(address[] memory _addresses, bool[] memory _enabled) external override onlyOwner {
+    function setBatchContractWhitelist(address[] calldata _addresses, bool[] calldata _enabled) external override onlyOwner {
         require(_addresses.length == _enabled.length, "array mismatch");
         for (uint256 i = 0; i < _addresses.length; i++) {
             _setContractWhitelist(_addresses[i], _enabled[i]);

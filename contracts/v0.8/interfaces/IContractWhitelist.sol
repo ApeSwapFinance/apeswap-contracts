@@ -30,6 +30,8 @@ interface IContractWhitelist {
 
     function getWhitelistAtIndex(uint256 _index) external returns (address);
 
+    function isWhitelisted(address _address) external returns (bool);
+
     function setWhitelistEnabled(bool _enabled) external;
 
     function setContractWhitelist(address _address, bool _enabled) external;
