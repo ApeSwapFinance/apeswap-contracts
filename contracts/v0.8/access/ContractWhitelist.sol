@@ -49,19 +49,19 @@ abstract contract ContractWhitelist is IContractWhitelist, Ownable {
     }
 
     /// @notice Get the number of addresses on the whitelist
-    function getWhitelistLength() external virtual override returns (uint256) {
+    function getWhitelistLength() external view virtual override returns (uint256) {
         return contractWhitelistSet.length();
     }
 
     /// @notice Find the address on the whitelist of the provided index
     /// @param _index Index to query
-    function getWhitelistAtIndex(uint256 _index) external virtual override returns (address) {
+    function getWhitelistAtIndex(uint256 _index) external view virtual override returns (address) {
         return contractWhitelistSet.at(_index);
     }
 
     /// @notice Check if an address is whitelisted
     /// @param _address Address to query
-    function isWhitelisted(address _address) public virtual override returns (bool) {
+    function isWhitelisted(address _address) public view virtual override returns (bool) {
         return contractWhitelistSet.contains(_address);
     }
 
