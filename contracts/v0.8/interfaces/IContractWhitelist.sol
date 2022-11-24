@@ -26,7 +26,11 @@ pragma solidity ^0.8.0;
  */
 
 interface IContractWhitelist {
-    function toggleWhitelist() external;
+    function getWhitelistLength() external returns (uint256);
+
+    function getWhitelistAtIndex(uint256 _index) external returns (address);
+
+    function setWhitelistEnabled(bool _enabled) external;
 
     function setContractWhitelist(address _address, bool _enabled) external;
 
