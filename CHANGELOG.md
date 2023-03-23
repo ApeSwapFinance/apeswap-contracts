@@ -5,6 +5,11 @@
 ### Added
 ### Changed
 
+## 2.0.0 - 2022-10-19
+### Added
+### Changed
+- Contract architecture based on compiler version
+
 
 ### Removed
 ## 1.0.0 - 2022-05-03

@@ -24,7 +24,7 @@
     "zeppelin"
   ],
   "author": "ApeSwap Community <maintainers@apeswap.finance>",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/ApeSwapFinance/apeswap-contracts/issues"
   },
